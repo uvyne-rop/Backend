@@ -71,7 +71,7 @@ class PersonalDetails(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     space_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 # space Model
-class Space(db.Model):
+class Spaces(db.Model):
     """
     Represents  space taken by a user.
     Attributes:
@@ -92,6 +92,7 @@ class Space(db.Model):
     amount = db.Column(db.Float)
     duration = db.Column(db.Integer)
     location = db.Column(db.String(255))
+    description = db.Column(db.String)
     taken_time = db.Column(db.DateTime, default=datetime.utcnow)
     status = db.Column(db.String(20), default='pending')  # 'occupied', 'not_occupied', or 'in progress'
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
